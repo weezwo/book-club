@@ -1,0 +1,8 @@
+<h2><%= @book.title %></h2>
+
+<%= form_for [@book, @thought] do |f| %>
+    <%= f.text_field :title, placeholder: "Title"%>
+    <br/>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+<% end %>

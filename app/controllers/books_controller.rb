@@ -8,7 +8,8 @@ class BooksController < ApplicationController
     end
 
     def show
-
+        @thought = @book.thoughts.build
+        
     end
 
     def edit
