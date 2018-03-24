@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+c = Club.create(name: "Ypsi Readers")
+c.books.create(title: "Catcher in the Rye", author: "J.D. Salinger")
