@@ -1,7 +1,22 @@
 class ClubsController < ApplicationController
-    before_action :set_club
+    before_action :set_club, only: [:show, :edit, :update, :destroy]
     
+    def new
+    end
+
+    def create
+    end
+
     def show
+    end
+
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
     end
 
     private
