@@ -5,6 +5,7 @@ class CreateReplies < ActiveRecord::Migration[5.1]
       t.integer :thought_id
       t.integer :user_id
       t.integer :associated_page
+      t.boolean :spoiler
       t.timestamps
     end
   end
