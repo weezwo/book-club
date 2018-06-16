@@ -12,7 +12,9 @@ class ThoughtsController < ApplicationController
     end
 
     def show
-        raise params.inspect
+        @thought = Thought.find(params[:id])
+        @reply = Reply.new
+        @user_book = UserBook.find_by(book: params[:book_id], user: current_user.id)
     end
 
     private
