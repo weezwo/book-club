@@ -18,5 +18,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :thoughts, only: [] do
+    resources :replies, only: [:create, :edit, :update, :destroy]
+  end
+
 
 end
