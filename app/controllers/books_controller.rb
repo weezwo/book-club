@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-    before_action :set_book, only: [:show, :edit, :update, :destroy]
+    before_action :set_book, only: [:show, :edit, :update, :destroy, :update_page]
     
     def new
     end
@@ -8,8 +8,9 @@ class BooksController < ApplicationController
     end
 
     def show
-        @thought = @book.thoughts.build
-        
+        @thought = Thought.new
+        @user_book = UserBook.find_or_initialize_by(book: @book, user: current_user)
+        @thoughts = @book.thoughts.where("associated_page <= ?", @user_book.associated_page)
     end
 
     def edit
@@ -19,6 +20,12 @@ class BooksController < ApplicationController
     end
 
     def destroy
+    end
+
+    def update_page
+        @user_book = UserBook.find_or_create_by(book: @book, user: current_user)
+        @user_book.update(associated_page: params[:page])
+        redirect_back(fallback_location: book_path(@book))
     end
 
     private
