@@ -1,8 +1,21 @@
-<h2><%= @book.title %></h2>
+<h2><%="#{ @book.club.name} - #{@book.title }"%></h2>
+
+Where you at?
+<%= form_tag(update_page_book_path(@book), method: :patch) do %>
+    <%= text_field_tag "page", @user_book.associated_page %>
+    <%= submit_tag "Ya!"%>
+<% end %>
 
 <%= form_for [@book, @thought] do |f| %>
     <%= f.text_field :title, placeholder: "Title"%>
     <br/>
     <%= f.text_area :content %>
+    <%= f.hidden_field :associated_page, value: @user_book.associated_page%>
     <%= f.submit %>
+<% end %>
+
+<% @thoughts.each do |thought| %>
+<h3><%= thought.title %></h3>
+<h4><%= thought.content %></h4>
+<%= link_to "Replies (#{thought.replies.count})", book_thought_path(@book.id, thought.id)%>
 <% end %>
