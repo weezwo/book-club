@@ -17,5 +17,6 @@ Where you at?
 <% @thoughts.each do |thought| %>
 <h3><%= thought.title %></h3>
 <h4><%= thought.content %></h4>
+<p><%= thought.user.display_name %></p>
 <%= link_to "Replies (#{thought.replies.count})", book_thought_path(@book.id, thought.id)%>
 <% end %>
