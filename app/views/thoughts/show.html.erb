@@ -1,0 +1,5 @@
+<h3><%= @thought.title %></h3>
+<h4><%= @thought.content %><h4>
+
+<% @thought.replies.each do |reply| %>
+<%= reply.content %>
