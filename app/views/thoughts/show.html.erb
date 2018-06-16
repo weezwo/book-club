@@ -1,5 +1,19 @@
 <h3><%= @thought.title %></h3>
 <h4><%= @thought.content %><h4>
 
+<%= form_for [@thought, @reply] do |f| %>
+    <%= f.text_area :content %>
+    <%= f.hidden_field :associated_page, value: @user_book.associated_page%>
+    <%= f.label :spoiler, "Spoiler?"%>
+    <%= f.check_box :spoiler %>
+    <%= f.submit %>
+<% end %>
+
 <% @thought.replies.each do |reply| %>
+<% if !reply.spoiler || reply.associated_page <= @user_book.associated_page %>
 <%= reply.content %>
+<br>
+<%= reply.user.display_name %>
+<br>
+<% end %>
+<% end %>
