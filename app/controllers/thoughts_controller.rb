@@ -13,8 +13,9 @@ class ThoughtsController < ApplicationController
 
     def show
         @thought = Thought.find(params[:id])
+        @book = Book.find(params[:book_id])
         @reply = Reply.new
-        @user_book = UserBook.find_by(book: params[:book_id], user: current_user.id)
+        @user_book = UserBook.find_by(book: @book, user: current_user.id)
     end
 
     private
