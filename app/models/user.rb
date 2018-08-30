@@ -6,6 +6,8 @@ class User < ApplicationRecord
     has_many :thoughts
     has_many :replies
 
+    validates :username, presence: true, uniqueness: true
+
 
     has_secure_password
 end
