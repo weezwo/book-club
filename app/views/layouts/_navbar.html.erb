@@ -1,1 +1,11 @@
-My Clubs    My Books    Explore
+<ul class="nav">
+<% if logged_in? %>
+<li>My Clubs</li> 
+<li>My Books</li>
+<li>Explore</li>
+<li>Log Out</li>
+<% else %>
+<li>Log In</li> 
+<li>Sign Up</li> 
+<% end %>
+</ul>
