@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
-  resources :users
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+
+  resources :users, only: [:show]
 
   resources :clubs do
     resources :books, only: [:index, :new, :create]
