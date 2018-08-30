@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
+  delete '/logout', to: 'sessions#destroy'
+
   resources :users, only: [:show]
 
   resources :clubs do
