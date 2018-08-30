@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :redirect_if_logged_in, only: [:new]
 
     def new
         @user = User.new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
             render :new
         end
     end
-
+    
     private
 
     def user_params
