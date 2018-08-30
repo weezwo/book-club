@@ -1,0 +1,12 @@
+<%= form_for @user, url: signup_path do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username %>
+<br>
+<%= f.label :display_name %>
+<%= f.text_field :display_name %>
+<br>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<br>
+<%= f.submit "SMASH"%>
+<% end %>
