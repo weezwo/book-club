@@ -1,6 +1,10 @@
 class ClubsController < ApplicationController
     before_action :set_club, only: [:show, :edit, :update, :destroy]
     
+    def index
+        @clubs = current_user.clubs
+    end
+
     def new
     end
 
